@@ -1,15 +1,21 @@
 package com.codegym.models;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
+@Entity
+@Table(name = "username")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @Size(min = 5,max = 45)
     private String firstName;
     @Size(min = 5,max = 45)
@@ -30,6 +36,14 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

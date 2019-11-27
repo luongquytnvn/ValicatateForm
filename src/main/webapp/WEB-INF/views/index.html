@@ -4,6 +4,7 @@
     <title>Form</title>
 </head>
 <body>
+<a th:if="${message != null}" th:text="${message}"></a>
 <form th:object="${user}" th:action="@{/validateUser}" method="post" >
     <table>
         <tr>

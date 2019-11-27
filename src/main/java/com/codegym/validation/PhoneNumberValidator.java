@@ -13,7 +13,7 @@ public class PhoneNumberValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"phoneNumber","phoneNumber.empty","phoneNumber.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"phoneNumber","phoneNumber.empty","phone number not empty");
         User user = (User) target;
         String regex = "[0-9]{10}";
         if (!user.getPhoneNumber().matches(regex)) {
